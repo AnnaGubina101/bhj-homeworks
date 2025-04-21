@@ -4,4 +4,7 @@ function winning (){
 }
 const intervalId = setInterval(winning, 1000);
 
-setTimeout(() => { clearInterval(intervalId); alert('Вы победили в конкурсе!'); }, 59000);
+setTimeout(() => { 
+       clearInterval(intervalId);
+       alert('Вы победили в конкурсе!'); 
+}, 59000);
