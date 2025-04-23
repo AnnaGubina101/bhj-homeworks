@@ -26,8 +26,8 @@ function endGame(message) {
   alert(message);
   score = 0;
   misses = 0;
-  deadDisplay.textContent = score;
-  lostDisplay.textContent = misses;
+  dead.textContent = score;
+  lost.textContent = misses;
 }
 
 hole.forEach((holes, index) => {
