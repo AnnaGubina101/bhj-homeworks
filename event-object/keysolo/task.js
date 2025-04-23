@@ -17,10 +17,9 @@ class Game {
   }
 
   registerEvents() {
-    let currentS = this.currentSymbol;
     document.addEventListener('keydown', (e) => {
       let receivedS = e.key.toLowerCase();
-      if(receivedS === currentS.textContent.toLowerCase()) {
+      if(receivedS === this.currentSymbol.textContent.toLowerCase()) {
         this.success();
       } else {
         this.fail();

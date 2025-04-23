@@ -6,7 +6,7 @@ dropContent.addEventListener('click', () => {
     list.classList.toggle('dropdown__list_active');
 });
 
-items.forEach((item, index) => {   
+items.forEach((item) => {   
     item.addEventListener('click', (event) => {
         event.preventDefault();
         dropContent.textContent = event.currentTarget.textContent;
