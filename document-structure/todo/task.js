@@ -3,16 +3,10 @@ let btn = document.querySelector('.tasks__add');
 let list = document.querySelector('.tasks__list');
 let form = document.querySelector('form');
 
-form.addEventListener('submit', ev => {
+btn.addEventListener('click', (ev) => {
     ev.preventDefault();
-})
-// document.addEventListener( 'keyup', event => {
-//     event.preventDefault();
-//     if( event.code === 'Enter' ) {console.log('enter was pressed')};
-//   });
 
-btn.addEventListener('click', () => {
-    if (input.value.length > 0) {
+    if (input.value.trim()) {
         let tasks = list.insertAdjacentHTML('afterend', `<div class="task">
         <div class="task__title">
            ${input.value}

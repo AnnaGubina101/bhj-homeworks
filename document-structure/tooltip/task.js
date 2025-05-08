@@ -1,29 +1,23 @@
 let hasTooltip = Array.from(document.querySelectorAll('.has-tooltip'));
 
 hasTooltip.forEach((element) => {
-    element.insertAdjacentHTML('afterend', `<div class="tooltip" style="left: 0; top: 0">${element.title}</div>`);
-
-    let tooltips = element.querySelectorAll('.tooltip');
+    element.insertAdjacentHTML('afterend', `<div class="tooltip">${element.title}</div>`);
+    
+    const tooltip = element.nextElementSibling;
 
     element.addEventListener('click', event => {
       event.preventDefault();
-
-      const child = element.nextElementSibling;
-      function addAndRemove() {
-            for (let i = 0; i < tooltips.length; i++) {
-                let tooltip = tooltips[i];
-
-                if (tooltip.classList.contains('tooltip_active')) {
-                    tooltip.classList.remove('tooltip_active')
-                } 
-            }
-         }
-
-      if (child.classList.contains('tooltip_active')) {
-            addAndRemove()
+      
+      if (tooltip.classList.contains('tooltip_active') && element.title === tooltip.textContent) {
+            tooltip.classList.remove('tooltip_active')
       } else {
-            addAndRemove()
-            child.classList.add('tooltip_active')
+        tooltip.textContent = element.title;
+        tooltip.classList.add('tooltip_active')
       }
+
+      let rect = element.getBoundingClientRect();
+
+      tooltip.style.left = `${rect.left}px`;
+      tooltip.style.top = `${rect.top + 25}px`
   })
 })

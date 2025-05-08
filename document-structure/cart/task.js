@@ -19,7 +19,7 @@ control.forEach(elem => {
 
 products.forEach(product => {
     let productAdd = product.querySelector('.product__add');
-    let id = product.getAttribute;
+    let id = product.dataset.id;
     let image = product.querySelector('.product__image').getAttribute('src');
     let productTotal = product.querySelector('.product__quantity-value');
 
@@ -29,13 +29,18 @@ products.forEach(product => {
 
         if (!sameProduct) {
             let allInCart = document.querySelector('.cart__products');
-            allInCart.insertAdjacentHTML('afterend', `
+            allInCart.insertAdjacentHTML('beforeEnd', `
                 <div class="cart__product" data-id="${id}">
                 <img class="cart__product-image" src="${image}">
                 <div class="cart__product-count">${productTotal.textContent}</div>
             </div>`)
         } else {
-            sameProduct.querySelector('.cart__product-count') = Number(productTotal.textContent) + Number(sameProduct.querySelector('.cart__product-count'));
+            let totalInCartElement = sameProduct.querySelector('.cart__product-count');
+            let currentTotalInCart = Number(totalInCartElement.textContent);
+            let addedQuantity = Number(productTotal.textContent);
+
+
+            totalInCartElement.textContent = currentTotalInCart + addedQuantity;
         }
     })
 })
