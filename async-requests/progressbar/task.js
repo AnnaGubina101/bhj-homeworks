@@ -1,9 +1,9 @@
-let form = document.getElementById('form');
+const form = document.getElementById('form');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    let xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
     const progress = document.getElementById('progress');
 
     xhr.upload.onprogress = (event) => {

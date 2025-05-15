@@ -1,10 +1,10 @@
-let xhr = new XMLHttpRequest();
-let items = document.querySelector('#items');
+const xhr = new XMLHttpRequest();
+const items = document.querySelector('#items');
 
 xhr.addEventListener('readystatechange', () => {
 
     if(xhr.readyState === xhr.DONE) {
-        let image = document.querySelector('#loader');
+        const image = document.querySelector('#loader');
         image.classList.remove('loader_active');
     }
 

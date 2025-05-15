@@ -1,4 +1,4 @@
-let xhr = new XMLHttpRequest();
+const xhr = new XMLHttpRequest();
 
 xhr.addEventListener('readystatechange', () => {
   if (xhr.readyState === xhr.DONE) {
@@ -8,8 +8,8 @@ xhr.addEventListener('readystatechange', () => {
 
     const arrayFromAnswers = Object.values(answers);
 
-    let pollAnswers = document.querySelector('.poll__answers');
-    let title = document.querySelector('.poll__title');
+    const pollAnswers = document.querySelector('.poll__answers');
+    const title = document.querySelector('.poll__title');
 
     title.insertAdjacentHTML('beforeend', `
       <div class="poll__title" id="poll__title">${titles}</div>`)
@@ -24,6 +24,8 @@ xhr.addEventListener('readystatechange', () => {
         alert('Спасибо, Ваш голос засчитан!');
       }
     })
+  } else {
+    console.error('Ошибка загрузки: ', xhr.statusText);
   }
   
 });
