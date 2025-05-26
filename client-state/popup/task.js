@@ -12,18 +12,14 @@ function getCookie(name) {
 }
 
 function modalActions () {
-    subscribeModal.classList.add('modal_active');
+    if(!getCookie('modalClosed')) {
+        subscribeModal.classList.add('modal_active');
+    }
 
     modalClose.addEventListener('click', () => {
         subscribeModal.classList.remove('modal_active');
         setCookie('modalClosed', true);
     })
-
-    if(!getCookie('modalClose')) {
-        subscribeModal.classList.add('modal_active');
-    } else {
-        return
-    }
 }
 
 modalActions();

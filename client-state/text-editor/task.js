@@ -1,7 +1,7 @@
 const textArea = document.querySelector('#editor')
-
-localStorage.setItem('text', textArea);
 const currentText = localStorage.getItem('text');
-if(currentText) {
-    textArea.value = currentText;
-}
+
+textArea.value = currentText;
+textArea.addEventListener('input', () => {
+    localStorage.setItem('text', textArea.value);
+})
