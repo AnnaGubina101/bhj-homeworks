@@ -1,16 +1,17 @@
 
 const xhr = new XMLHttpRequest();
 const signIn = document.querySelector('.signin')
-const form = document.querySelector('.signin__form')
+const form = document.querySelector('#signin__form')
 const btn = document.querySelector('#signin__btn')
 const welcome = document.querySelector('.welcome')
 const userId = document.querySelector('#user_id')
 
-function formSend() {
+function formSend(e) {
     const formData = new FormData(form);
     xhr.open('POST', 'https://students.netoservices.ru/nestjs-backend/auth');
     xhr.responseType = 'json';
-
+    e.preventDefault();
+    
     xhr.onload = () => {
         if(xhr.response.success) {
             signIn.classList.remove('signin_active')
